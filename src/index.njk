@@ -1,0 +1,94 @@
+---
+eleventyExcludeFromCollections: true
+layout: base.njk
+---
+<main id="main" class="grid grid-cols-1 gap-4">
+
+    <section class="mb-32">
+
+        <header>
+            <h1 class="font-bold mt-5  mb-10 ">
+                FLY-11ty <span class="font-light text-4xl text-gray-500">v{{ pkg.version }}</span>
+            </h1>
+            <span class="font-light text-4xl text-gray-500 mb-6 leading-10">Because, who doesn't love Opossum's?</span>
+        </header>
+
+        <p class="text-2xl mb-24 leading-8">
+            Simple boilerplate for Static Site Generator <a href="https://www.11ty.dev/">eleventy</a> &mdash; build with webpack, tailwind, purgeCSS & postCSS
+        </p>
+
+        <div class="grid gap-24 grid-cols-3 justify-start">
+
+            <dl class="col-span-2 sm:col-start-1 sm:col-end-1">
+                <dt class="mb-2 pt-3"><span class="text-gray-500 border-gray-600 border-t-4 pt-2 text-2xl uppercase">Features</span></dt>
+                <dd>RSS Feed</dd>
+                <dd>Sitemap.xml</dd>
+                <dd>Article Tags</dd>
+                <dd>SEO Meta Tags</dd>
+                <dd>Syntax Highlighting</dd>
+                <dd>ServiceWorker (Workbox)</dd>
+            </dl>
+
+            <dl class="col-span-2 sm:col-start-2 sm:col-end-2">
+                <dt class="mb-2 pt-3"><span class="text-gray-500 border-gray-600 border-t-4 pt-2 text-2xl uppercase">Development</span></dt>
+                <dd>Babel</dd>
+                <dd>Webpack</dd>
+                <dd>postCSS</dd>
+                <dd>TailwindCSS</dd>
+                <dd>BrowserSync</dd>
+                <dd>Minify HTML/CSS/JS</dd>
+            </dl>
+
+            <dl class="col-span-2 sm:col-start-3 sm:col-end-3">
+                <dt class="mb-2 pt-3"><span class="text-gray-500 border-gray-600 border-t-4 pt-2 text-2xl uppercase">Source</span></dt>
+                <dd>
+                    Clone or Download the  Repository
+                    <br>
+                    <br>
+                    <a class="underline text-red-600" href="https://github.com/brachycera/fly11ty.git">github.com/brachycera/fly11ty</a>
+                </dd>
+            </dl>
+
+        </div>
+
+    </section>
+
+    <section class="mb-16">
+
+        <header>
+            <h2 class="font-light text-4xl text-gray-500 mb-6">
+                <span class="border-t-4 pt-2 uppercase">
+                <a href="/blog">Blog</a>
+                </span>
+            </h2>
+        </header>
+
+        {% set latestBlogPosts = collections.blogPosts | reverse %}
+
+        {% for blog in latestBlogPosts.slice(0, 4) %}
+
+            <article>
+
+                <h3 class="text-x1 mb-4 leading-10">
+                    <a href="{{ blog.url | url }}" class="hover:underline hover:text-red-600">{{ blog.data.title }}</a>
+                </h3>
+
+                <p>
+                    {{ blog.data.excerpt }}
+                    <br>
+                    <span class="text-gray-500 text-sm">
+                        Published
+                        <time datetime="{{ blog.date | htmlDateString }}">{{ blog.date | articleDateString }}</time>
+                    </span>
+                </p>
+
+
+            </article>
+
+        {% endfor %}
+
+    </section>
+
+</main>
+
+

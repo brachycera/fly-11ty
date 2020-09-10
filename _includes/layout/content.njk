@@ -1,0 +1,31 @@
+---
+layout: base.njk
+---
+<main id="main">
+
+    <time datetime="{{ date | htmlDateString }}" class="text-gray-500 text-2xl uppercase inline">
+
+        {{ date | articleDateString if date else "" | safe }}
+
+    </time>
+
+    {% if date | outOfDate %}
+        <span class="text-red-700 text-xs">The Information in this Post might be <u>out of date</u>!</span>
+    {% endif %}
+
+
+    {{ content | safe }}
+
+
+    {% if tags %}
+    <p class="flex">
+        <span class="uppercase text-gray-500 pr-2 self-center">Tags</span>
+        {% for tag in tags %}
+
+            <a href="/tags/{{ tag }}" class="p-1 border-gray-500 border mr-2 text-sm hover:text-red-600">{{ tag }}</a>
+
+        {% endfor %}
+    </p>
+    {% endif %}
+
+</main>

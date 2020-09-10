@@ -1,0 +1,41 @@
+---
+pagination:
+    data: collections.blogPosts
+    size: 2
+    resolve: date
+    reverse: true
+layout: pagination.njk
+eleventyExcludeFromCollections: true
+title: Blog
+ogtype: website
+---
+
+<h1 class="text-gray-500 text-2xl uppercase mb-4">Blog Articles</h1>
+
+<section>
+
+    {% for blog in pagination.items %}
+
+        <article>
+
+            <h2>
+                <a href="{{ blog.url | url }}" class="hover:underline hover:text-red-600">{{ blog.data.title }}</a>
+            </h2>
+
+            <p>
+
+                {{ blog.data.excerpt }}
+                <br>
+                <span class="text-gray-500 text-sm">
+                    Published
+                    <time datetime="{{ blog.date | htmlDateString }}">{{ blog.date | articleDateString }}</time>
+                </span>
+
+            </p>
+
+
+        </article>
+
+    {% endfor %}
+
+</section>

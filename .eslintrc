@@ -1,0 +1,71 @@
+{
+    "env":{
+        "browser": true,
+        "jquery": true,
+        "node": true,
+        "serviceworker": true,
+        "es6": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 9,
+        "sourceType": "module"
+    },
+    "globals":{
+        "Promise": true
+    },
+    "extends": [
+        "airbnb"
+    ],
+    "plugins": [
+        "import",
+        "html"
+    ],
+    "rules": {
+        "array-callback-return": ["error", { "allowImplicit": true }],
+        "camelcase": "warn",
+        "class-methods-use-this": "warn",
+        "func-names": ["warn", "as-needed"],
+        "global-require": "warn",
+        "guard-for-in": "warn",
+        "import/first": "warn",
+        "import/newline-after-import": 0,
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": true}],
+        "indent": ["warn", 4],
+        "key-spacing": "warn",
+        "max-len": ["warn", 240],
+        "newline-per-chained-call": 0,
+        "no-console": "warn",
+        "no-multiple-empty-lines": "warn",
+        "no-new-symbol": "warn",
+        "no-new": 0,
+        "no-param-reassign": 0,
+        "no-prototype-builtins": "warn",
+        "no-plusplus": ["error", {"allowForLoopAfterthoughts": true }],
+        "no-restricted-syntax": "warn",
+        "no-trailing-spaces": "warn",
+        "no-unused-vars": "warn",
+        "no-useless-escape": "warn",
+        "no-use-before-define": "warn",
+        "no-var": "warn",
+        "object-curly-spacing": "warn",
+        "object-shorthand": "warn",
+        "one-var": "warn",
+        "padded-blocks": ["warn", { "blocks": "always" }],
+        "prefer-arrow-callback": 0,
+        "prefer-const": "warn",
+        "prefer-template": "warn",
+        "quotes": ["warn", "single"],
+        "quote-props": ["warn"],
+        "spaced-comment": "warn",
+        "space-before-function-paren": ["warn", "never"],
+        "space-in-parens": "warn",
+        "vars-on-top": "warn",
+        "comma-dangle": ["warn", {
+            "arrays": "never",
+            "objects": "never",
+            "imports": "always-multiline",
+            "exports": "always-multiline",
+            "functions": "never"
+        }]
+    }
+}

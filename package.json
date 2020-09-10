@@ -1,0 +1,89 @@
+{
+    "name": "fly11ty",
+    "version": "1.0.0",
+    "description": "Flyweb Eleventy Starter Kit",
+    "scripts": {
+        "clean": "rimraf ./dist ./.cache",
+        "eleventy:debug": "DEBUG=Eleventy* eleventy",
+        "eleventy:watch": "eleventy --watch",
+        "eleventy:serve": "eleventy --serve",
+        "build": "rimraf ./dist; ELEVENTY_ENV=production eleventy --quiet; NODE_ENV=production webpack --mode=production; ELEVENTY_ENV=production eleventy --quiet; NODE_ENV=production workbox generateSW",
+        "dev": "npm run clean && NODE_ENV=development webpack --mode=development && eleventy && NODE_ENV=development workbox generateSW",
+        "dev:watch": "rimraf ./dist; NODE_ENV=development webpack-dashboard -- webpack --watch --mode=development"
+    },
+    "author": {
+        "name": "superfly",
+        "email": "superfly@flyweb.at"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/brachycera/fly11ty.git"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "@11ty/eleventy": "^0.11.0",
+        "@11ty/eleventy-plugin-rss": "^1.0.7",
+        "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+        "@babel/core": "^7.11.0",
+        "@babel/preset-env": "^7.11.0",
+        "@fullhuman/postcss-purgecss": "^2.3.0",
+        "animejs": "^3.2.0",
+        "autoprefixer": "^9.8.4",
+        "babel-loader": "^8.1.0",
+        "browser-sync-webpack-plugin": "^2.2.2",
+        "clean-webpack-plugin": "^3.0.0",
+        "css-loader": "^3.6.0",
+        "cssnano": "^4.1.10",
+        "eleventy-plugin-seo": "^0.5.0",
+        "eslint": "^7.6.0",
+        "eslint-config-airbnb": "^18.2.0",
+        "eslint-plugin-html": "^6.0.2",
+        "eslint-plugin-import": "^2.22.0",
+        "eslint-plugin-jsx-a11y": "^6.3.1",
+        "eslint-plugin-react": "^7.20.5",
+        "eslint-plugin-react-hooks": "^4.0.8",
+        "fast-glob": "^3.2.4",
+        "file-loader": "^6.0.0",
+        "html-minifier": "^4.0.0",
+        "html-webpack-plugin": "^4.3.0",
+        "luxon": "^1.24.1",
+        "markdown-it": "^11.0.0",
+        "markdown-it-attrs": "^3.0.3",
+        "mini-css-extract-plugin": "^0.9.0",
+        "postcss-loader": "^3.0.0",
+        "postcss-modules": "^3.2.0",
+        "rimraf": "^3.0.2",
+        "runscript": "^1.5.0",
+        "tailwindcss": "^1.4.6",
+        "url-loader": "^4.1.0",
+        "webpack": "^4.43.0",
+        "webpack-cli": "^3.3.12",
+        "webpack-dashboard": "^3.2.0",
+        "workbox-cli": "^5.1.3"
+    },
+    "dependencies": {},
+    "browserslist": {
+        "production": [
+            "> 1%",
+            "last 2 versions",
+            "Firefox ESR"
+        ],
+        "legacyBrowsers": [
+            "> 1%",
+            "last 2 versions",
+            "Firefox ESR"
+        ],
+        "modernBrowsers": [
+            "last 2 Chrome versions",
+            "not Chrome < 60",
+            "last 2 Safari versions",
+            "not Safari < 10.1",
+            "last 2 iOS versions",
+            "not iOS < 10.3",
+            "last 2 Firefox versions",
+            "not Firefox < 54",
+            "last 2 Edge versions",
+            "not Edge < 15"
+        ]
+    }
+}

@@ -1,0 +1,15 @@
+---
+title: Tags
+ogtype:  website
+---
+
+<h1>Article Tags</h1>
+
+<p>The following Tags should help find articles for a specific topic.</p>
+
+{% for tag in collections.tagsList %}
+
+    {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+    <a href="{{ tagUrl | url }}">{{ tag }}</a>
+
+{% endfor %}

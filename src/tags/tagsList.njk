@@ -1,0 +1,32 @@
+---
+pagination:
+    data: collections
+    size: 1
+    alias: tag
+    filter:
+        - all
+        - blog
+        - tagsList
+permalink: /tags/{{ tag }}/
+---
+
+<h1>Articles Tagged: {{ tag }}</h1>
+
+<ul>
+    {% set tagslist = collections[ tag ] %}
+    {% for post in tagslist | reverse %}
+
+        <li>
+
+            <a href="{{ post.url | url }}">{{ post.data.title }}</a> &mdash;
+
+            <time datetime="{{ post.data.date | htmlDateString }}">
+
+                {{ post.data.date | articleDateString | safe }}
+
+            </time>
+
+        </li>
+
+    {% endfor %}
+</ul>

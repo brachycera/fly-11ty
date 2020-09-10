@@ -1,0 +1,47 @@
+---
+layout: content.njk
+---
+
+{{ content | safe }}
+
+<br>
+
+<nav role="navigation" aria-label="Page Pagination" class="pagination">
+
+    <ol class="flex items-center">
+
+        {% if page.url != pagination.href.first %}
+            <li>
+                <a href="{{ pagination.href.first }}" aria-label="Goto First Page">First</a>
+            </li>
+        {% endif %}
+
+        {% if pagination.href.previous %}
+            <li>
+                <a href="{{ pagination.href.previous }}" aria-label="Goto Previous Page">&laquo;</a>
+            </li>
+        {% endif %}
+
+        {%- for pageEntry in pagination.pages %}
+            <li class="pagerLink {% if page.url == pagination.hrefs[ loop.index0 ] %}current{% endif %}">
+                <a href="{{ pagination.hrefs[ loop.index0 ] }}" {% if page.url == pagination.hrefs[ loop.index0 ] %}aria-current="page"{% endif %} aria-label="Goto Page {{ loop.index }}">
+                    {{ loop.index }}
+                </a>
+            </li>
+        {%- endfor %}
+
+        {% if pagination.href.next %}
+            <li>
+                <a href="{{ pagination.href.next }}" aria-label="Goto Next Page">&raquo;</a>
+            </li>
+        {% endif %}
+
+        {% if page.url != pagination.href.last %}
+            <li>
+                <a href="{{ pagination.href.last }}"  aria-label="Goto Last Page">Last</a>
+            </li>
+        {% endif %}
+
+    </ol>
+
+</nav>
