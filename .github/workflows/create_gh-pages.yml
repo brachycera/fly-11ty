@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v1
         
       - name: Publish generated content to GitHub Pages
-        uses: brachycera/fly-11ty
+        uses: brachycera/fly-11ty/dist
         with:
           dir: dist
           branch: gh-pages
