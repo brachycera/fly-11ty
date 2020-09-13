@@ -6,7 +6,7 @@ excerpt: "Rerum sed nulla eum vero expedita ex delectus voluptates rem at neque 
 tags: [ tag1, tag2, tag3 ]
 ---
 
-<h1 class="leading-tight mb-8">
+<h1 class="leading-tight my-4">
     {{ title }}
 </h1>
 

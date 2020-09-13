@@ -6,7 +6,7 @@ excerpt: "Non porro minima debitis, sit quae cupiditate et, exercitationem earum
 tags: [ tag1, tag2, tag3 ]
 ---
 
-<h1 class="leading-tight mb-8">
+<h1 class="leading-tight my-4">
     {{ title }}
 </h1>
 

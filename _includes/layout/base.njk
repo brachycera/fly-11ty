@@ -5,6 +5,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <base href="{{ fly11ty.base }}">
+
         {% seo "" %}
 
         <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="{{ site.title }}">
@@ -17,15 +19,13 @@
 
         <nav class="text-xl text-center mt-4">
             <a href="#main" class="sr-only focus:not-sr-only">Skip to content</a>
-            <a href="/" class="pt-4 border-gray-800 border-t-8 hover:border-red-600 uppercase">FY11</a>
-            <a href="/blog" class="pt-4 border-gray-600 border-t-4 hover:border-red-600 uppercase" aria-current="page">Blog</a>
-            <a href="/about" class="pt-4 border-gray-600 border-t-4 hover:border-red-600 uppercase">About</a>
+            <a href="/" class="{% if page.url === '/' %}border-t-8 border-gray-800{% else %}border-t-4 border-gray-600{% endif  %} pt-4 hover:border-red-600 uppercase" {% if '/' === page.url %}aria-current="page"{% endif %}>FY11</a>
+            <a href="/blog" class="{% if '/blog' in page.url %}border-t-8 border-gray-800{% else %}border-t-4 border-gray-600{% endif %} pt-4 hover:border-red-600 uppercase" {% if '/blog' in page.url %}aria-current="page"{% endif %}>Blog</a>
+            <a href="/about" class="{% if '/about' in page.url %}border-t-8 border-gray-800{% else %}border-t-4 border-gray-600{% endif %} pt-4 hover:border-red-600 uppercase" {% if '/about' in page.url %}aria-current="page"{% endif %}>About</a>
             <a href="/feed.xml" class="pt-4 border-gray-600 border-t-4 hover:border-red-600 uppercase" aria-label="rss-feed" target="_blank" rel="noopener">RSS-Feed</a>
         </nav>
 
-
         {{ content | safe }}
-
 
         <footer class="text-xs text-gray-500 border-gray-600 border-t pt-4 mb-5 text-center">
             Made by <a href="https://www.flyweb.at" class="underline">flyweb productions</a> in Summer 2020 Vienna/Austria &mdash; MIT License <a href="https://github.com/brachycera/fly11ty" class="underline">github.com/brachycera/fly11ty</a>

@@ -5,28 +5,30 @@ const pluginSEO = require('eleventy-plugin-seo');
 const markdownItAttrs = require('markdown-it-attrs');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
+
+/**********************************
+*         Default Values
+**********************************/
+
+const options = {
+    dir: {
+        input: 'src',
+        output: 'dist',
+        includes: '../_includes',
+        data: '../_data',
+        layouts: '../_includes/layout',
+        templateFormats: ['njk', 'md', 'html']
+    },
+    title: 'FLY-11ty Starter Project',
+    description: 'Simple boilerplate for Static Site Generator eleventy — build with webpack, tailwind, purgeCSS & postCSS',
+    url: process.env.ELEVENTY_ENV === 'production' ? 'https://brachycera.github.io/fly-11ty/' : '',
+    author: 'superfly',
+    twitter: '',
+    image: '',
+    base: process.env.ELEVENTY_ENV === 'production' ? 'https://brachycera.github.io/fly-11ty/' : '/'
+};
+
 module.exports = (eleventyConfig) => {
-
-    /**********************************
-     *         Default Values
-     **********************************/
-
-    let options = {
-        dir: {
-            input: 'src',
-            output: 'dist',
-            includes: '../_includes',
-            data: '../_data',
-            layouts: '../_includes/layout',
-            templateFormats: ['njk', 'md', 'html']
-        },
-        title: 'Add custom HTML (Meta) Title',
-        description: 'Add custom HTML meta description',
-        url: 'https://www.XXX.XX',
-        author: 'XXX',
-        twitter: 'XXX',
-        image: 'https://www.XXX.XX/default_image.png'
-    };
 
     /**********************************
      *          Collections
@@ -203,3 +205,6 @@ module.exports = (eleventyConfig) => {
     return options;
 
 };
+
+// Export options to use in templates
+module.exports.options = options;
