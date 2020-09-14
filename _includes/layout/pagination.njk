@@ -12,19 +12,19 @@ layout: content.njk
 
         {% if page.url != pagination.href.first %}
             <li>
-                <a href="{{ pagination.href.first }}" aria-label="Goto First Page">First</a>
+                <a href="{{ pagination.href.first | url }}" aria-label="Goto First Page">First</a>
             </li>
         {% endif %}
 
         {% if pagination.href.previous %}
             <li>
-                <a href="{{ pagination.href.previous }}" aria-label="Goto Previous Page">&laquo;</a>
+                <a href="{{ pagination.href.previous | url }}" aria-label="Goto Previous Page">&laquo;</a>
             </li>
         {% endif %}
 
         {%- for pageEntry in pagination.pages %}
             <li class="pagerLink {% if page.url == pagination.hrefs[ loop.index0 ] %}current{% endif %}">
-                <a href="{{ pagination.hrefs[ loop.index0 ] }}" {% if page.url == pagination.hrefs[ loop.index0 ] %}aria-current="page"{% endif %} aria-label="Goto Page {{ loop.index }}">
+                <a href="{{ pagination.hrefs[ loop.index0 ] | url}}" {% if page.url == pagination.hrefs[ loop.index0 ] %}aria-current="page"{% endif %} aria-label="Goto Page {{ loop.index }}">
                     {{ loop.index }}
                 </a>
             </li>
@@ -32,13 +32,13 @@ layout: content.njk
 
         {% if pagination.href.next %}
             <li>
-                <a href="{{ pagination.href.next }}" aria-label="Goto Next Page">&raquo;</a>
+                <a href="{{ pagination.href.next | url }}" aria-label="Goto Next Page">&raquo;</a>
             </li>
         {% endif %}
 
         {% if page.url != pagination.href.last %}
             <li>
-                <a href="{{ pagination.href.last }}"  aria-label="Goto Last Page">Last</a>
+                <a href="{{ pagination.href.last | url }}"  aria-label="Goto Last Page">Last</a>
             </li>
         {% endif %}
 

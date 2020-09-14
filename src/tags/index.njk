@@ -7,9 +7,13 @@ ogtype:  website
 
 <p>The following Tags should help find articles for a specific topic.</p>
 
+<p>
 {% for tag in collections.tagsList %}
 
     {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-    <a href="{{ tagUrl | url }}">{{ tag }}</a>
+    <a href="{{ tagUrl | url }}" class="p-1 border-gray-500 border mr-2 text-sm hover:text-red-600">{{ tag }}</a>
 
 {% endfor %}
+</p>
+
+<br>

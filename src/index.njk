@@ -14,7 +14,7 @@ layout: base.njk
         </header>
 
         <p class="text-2xl mb-24 leading-8">
-            Simple boilerplate for Static Site Generator <a href="https://www.11ty.dev/">eleventy</a> &mdash; build with webpack, tailwind, purgeCSS & postCSS
+            Simple boilerplate for Static Site Generator <a href="https://www.11ty.dev/" class="underline">eleventy</a> &mdash; build with webpack, tailwind, purgeCSS & postCSS
         </p>
 
         <div class="grid gap-24 grid-cols-3 justify-start">
@@ -58,7 +58,7 @@ layout: base.njk
         <header>
             <h2 class="font-light text-4xl text-gray-500 mb-6">
                 <span class="border-t-4 pt-2 uppercase">
-                <a href="/blog">Blog</a>
+                    <a href="{{ '/blog' | url }}">Blog</a>
                 </span>
             </h2>
         </header>

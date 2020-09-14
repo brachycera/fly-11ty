@@ -7,7 +7,7 @@
         "eleventy:debug": "DEBUG=Eleventy* eleventy",
         "eleventy:watch": "eleventy --watch",
         "eleventy:serve": "eleventy --serve",
-        "build": "rimraf ./dist; ELEVENTY_ENV=production eleventy --quiet; NODE_ENV=production webpack --mode=production; ELEVENTY_ENV=production eleventy --quiet; NODE_ENV=production workbox generateSW",
+        "build": "rimraf ./dist; ELEVENTY_ENV=production eleventy --quiet; ELEVENTY_ENV=production NODE_ENV=production webpack --mode=production; ELEVENTY_ENV=production eleventy --quiet; NODE_ENV=production workbox generateSW",
         "dev": "npm run clean && NODE_ENV=development webpack --mode=development && eleventy && NODE_ENV=development workbox generateSW",
         "dev:watch": "rimraf ./dist; NODE_ENV=development webpack-dashboard -- webpack --watch --mode=development"
     },

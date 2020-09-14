@@ -21,11 +21,11 @@ const options = {
     },
     title: 'FLY-11ty Starter Project',
     description: 'Simple boilerplate for Static Site Generator eleventy — build with webpack, tailwind, purgeCSS & postCSS',
-    url: process.env.ELEVENTY_ENV === 'production' ? 'https://brachycera.github.io/fly-11ty/' : '',
+    url: process.env.ELEVENTY_ENV === 'production' ? 'https://brachycera.github.io/fly-11ty' : '',
     author: 'superfly',
     twitter: '',
     image: '',
-    base: process.env.ELEVENTY_ENV === 'production' ? 'https://brachycera.github.io/fly-11ty/' : '/'
+    pathPrefix: process.env.ELEVENTY_ENV === 'production' ? '/fly-11ty' : '/'
 };
 
 module.exports = (eleventyConfig) => {

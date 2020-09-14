@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const { pathPrefix } = require('./.eleventy').options;
 
 module.exports = (env, argv) => {
 
@@ -17,7 +18,7 @@ module.exports = (env, argv) => {
         output: {
             path: path.resolve(__dirname, 'dist'),
             filename: '[name].[chunkhash].js',
-            publicPath: '/'
+            publicPath: argv.mode !== 'production' ? '/' : pathPrefix,
         },
         devtool: argv.mode !== 'production' ? 'source-map' : false,
         module: {
